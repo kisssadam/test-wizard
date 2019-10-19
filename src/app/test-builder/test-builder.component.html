@@ -21,30 +21,43 @@
             </div>
 
             <div class="form-group" formArrayName="answers">
-                <div class="form-row" *ngFor="let answer of getAnswers(question); let answerIndex = index"
+                <div class="form-group form-row" *ngFor="let answer of getAnswers(question); let answerIndex = index"
                     [formGroupName]="answerIndex">
-                    <div class="col-1">
+                    <div class="col-2">
                         <label class="col-form-label">Answer #{{ answerIndex + 1 }}</label>
                     </div>
-                    <div class="col-1">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" formControlName="correct"
-                                id="answer-{{ questionIndex }}-{{ answerIndex }}">
-                            <label class="form-check-label col-form-label"
-                                for="answer-{{ questionIndex }}-{{  answerIndex }}">Correct</label>
+                    <div class="col-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input"
+                                            id="answer-{{ questionIndex }}-{{ answerIndex }}">
+                                        <label class="custom-control-label"
+                                            for="answer-{{ questionIndex }}-{{  answerIndex }}">Correct</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" formControlName="answerLabel"
+                                placeholder="Enter answer">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button"><span
+                                        class="oi oi-minus"></span></button>
+                                <button class="btn btn-outline-secondary" type="button"
+                                    (click)="addAnswer(getAnswers(question))"><span class="oi oi-plus"></span></button>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-10">
-                        <input type="text" class="form-control" formControlName="answerLabel"
-                            placeholder="Enter answer">
-                    </div>
                 </div>
-                <div class="form-row">
-                    <input class="btn btn-primary" type="button" (click)="addQuestion()" value="Add question">
-                    <input class="btn btn-primary" type="button" (click)="addAnswer(getAnswers(question))" value="Add answer">
-                </div>
+
+            </div>
+            
+            <div class="form-group text-right">
+                <input type="button" class="btn btn-primary" (click)="addQuestion()" value="Add question">
             </div>
         </div>
     </div>
-    <button type="submit" [disabled]="!formGroup.valid">Submit</button>
+    <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid">Submit</button>
+    </div>
 </form>
