@@ -39,19 +39,18 @@
                                             for="answer-{{ questionIndex }}-{{  answerIndex }}">Correct</label>
                                     </div>
                                 </div>
-                                <button class="btn btn-outline-secondary" type="button"><span
-                                        class="oi oi-minus"></span></button>
                                 <button class="btn btn-outline-secondary" type="button"
-                                    (click)="addAnswer(getAnswers(question))"><span class="oi oi-plus"></span></button>
+                                    (click)="removeAnswer(question, answer)"><span class="oi oi-minus"></span></button>
+                                <button class="btn btn-outline-secondary" type="button"
+                                    (click)="addAnswerAfter(question, answer)"><span class="oi oi-plus"></span></button>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-            
+
             <div class="form-group text-right">
-                <input type="button" class="btn btn-primary" (click)="addQuestion()" value="Add question">
+                <input type="button" class="btn btn-primary" (click)="addQuestionAfter(question)" value="Add question">
             </div>
         </div>
     </div>
