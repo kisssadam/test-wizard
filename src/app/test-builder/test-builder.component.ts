@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TestForm } from '../shared/test-form';
 
 @Component({

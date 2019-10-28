@@ -4,7 +4,8 @@
             <label class="col-form-label" for="titleInput">Title</label>
         </div>
         <div class="col-11">
-            <input type="text" class="form-control" id="titleInput" formControlName="title" placeholder="Enter title" autofocus>
+            <input type="text" class="form-control" id="titleInput" formControlName="title" placeholder="Enter title"
+                autofocus>
         </div>
     </div>
     <div class="form-group" formArrayName="questions">
@@ -33,7 +34,7 @@
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input"
+                                        <input type="checkbox" class="custom-control-input" formControlName="correct"
                                             id="answer-{{ questionIndex }}-{{ answerIndex }}">
                                         <label class="custom-control-label"
                                             for="answer-{{ questionIndex }}-{{  answerIndex }}">Correct</label>
@@ -58,3 +59,5 @@
         <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid">Submit</button>
     </div>
 </form>
+
+<tw-test-builder-preview [testForm]="formGroup.getRawValue()"></tw-test-builder-preview>
