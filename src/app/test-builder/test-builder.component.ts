@@ -26,10 +26,8 @@ export class TestBuilderComponent {
     return (question.get('answers') as FormArray).controls;
   }
 
-  addQuestionAfter(question: FormGroup) {
-    const currentQuestionIndex = this.questions.indexOf(question);
-    const nextQuestionIndex = currentQuestionIndex + 1;
-    this.questions.splice(nextQuestionIndex, 0, this.newQuestion());
+  addQuestion() {
+    this.questions.push(this.newQuestion());
   }
 
   addAnswerAfter(question: FormGroup, answer: FormControl) {

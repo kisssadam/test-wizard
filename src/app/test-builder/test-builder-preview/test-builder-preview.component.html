@@ -2,7 +2,7 @@
     <h1 *ngIf="testForm.title">{{ testForm.title }}</h1>
     <div *ngFor="let question of testForm.questions">
         <h2 *ngIf="question.questionLabel">{{ question.questionLabel }}</h2>
-        <ol *ngIf="question.answers">
+        <ol *ngIf="question.answers" class="list-unstyled">
             <ng-container *ngFor="let answer of question.answers">
                 <li *ngIf="answer.answerLabel">
                     <span class="oi" [ngClass]="answer.correct ? 'oi-circle-check' : 'oi-circle-x'"></span>
