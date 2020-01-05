@@ -1,0 +1,11 @@
+.question-preview {
+  counter-reset: question-index;
+}
+
+.question {
+  counter-increment: question-index;
+}
+
+.question-label::before {
+  content: counter(question-index) ". ";
+}

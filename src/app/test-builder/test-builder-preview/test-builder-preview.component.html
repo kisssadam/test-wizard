@@ -1,16 +1,13 @@
-<div>
+<div class="question-preview">
     <span *ngIf="testForm.title">
         <h1>{{ testForm.title }}</h1>
         <hr>
     </span>
-    <div *ngFor="let question of testForm.questions">
-        <h2 *ngIf="question.questionLabel">{{ question.questionLabel }}</h2>
-        <ol *ngIf="question.answers" class="list-unstyled">
+    <div *ngFor="let question of testForm.questions; let i = index" class="question">
+        <h2 class="question-label" >{{ question.questionLabel }}</h2>
+        <ol *ngIf="question.answers" type="a">
             <ng-container *ngFor="let answer of question.answers">
-                <li *ngIf="answer.answerLabel">
-                    <span class="oi" [ngClass]="answer.correct ? 'oi-circle-check' : 'oi-circle-x'"></span>
-                    {{ answer.answerLabel }}
-                </li>
+                <li *ngIf="answer.answerLabel">{{ answer.answerLabel }}</li>
             </ng-container>
         </ol>
         <hr *ngIf="question.questionLabel">
